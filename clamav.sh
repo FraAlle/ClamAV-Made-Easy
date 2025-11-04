@@ -2,21 +2,15 @@
 
 #Installation Time
 
-#Get OS Info
-os_info=$(cat /etc/os-release | grep ID_LIKE | awk -F'=' '/ID_LIKE/ {gsub(/"/, "", $2); print $2}')
-
-echo "$os_info"
-
-exit 0
-
-
 #Download the .deb file
-wget -P ~/Download https://www.clamav.net/downloads/production/clamav-1.4.3.linux.x86_64.deb
+url="https://www.clamav.net/downloads/production/clamav-1.4.3.linux.x86_64.deb"
 
+file_name=$(basename "$url")
 
+wget -P ~/Download "$url"
 
-
-
+#Install ClamAV
+cd ~/Download && sudo apt install ./"$file_name"
 
 #Get Day Time
 date=$(date +'%d-%m-%Y')
