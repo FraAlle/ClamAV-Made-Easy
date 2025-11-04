@@ -57,7 +57,7 @@ if output=$(eval "$command"); then
 	
 
 	#Send Out information
-	echo "$output" > "$log_path"
+	echo "$output" >> "$log_path"
 	echo "Scan successful. The log is saved at $log_path"
 
 	#Send Notification to the system
